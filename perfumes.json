@@ -1,5 +1,18 @@
 [
     {
+        "name": "Asad Elixir",
+        "house": "Lattafa",
+        "rating": "9/10",
+        "tier": "S",
+        "price": "120 - 180",
+        "owned": true,
+        "wishlist": false,
+        "notes": "Strong, oriental and masculine.",
+        "quote": "Strong, oriental and masculine.",
+        "image": "https://fimgs.net/images/perfume/o.117616.jpg",
+        "link": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Asad-Elixir-117616.html"
+    },
+    {
         "name": "Knight Silver",
         "house": "Arabian Oud",
         "rating": "9/10",
@@ -89,19 +102,6 @@
         "quote": "Very good blue fragrance. S Tier.",
         "image": "https://fimgs.net/images/perfume/o.40031.jpg",
         "link": "https://www.fragrantica.com/perfume/Versace/Versace-Pour-Homme-Dylan-Blue-40031.html"
-    },
-    {
-        "name": "Asad Elixir",
-        "house": "Lattafa",
-        "rating": "S Tier",
-        "tier": "B",
-        "price": "120 - 180",
-        "owned": true,
-        "wishlist": false,
-        "notes": "Strong, oriental and masculine.",
-        "quote": "Strong, oriental and masculine.",
-        "image": "https://fimgs.net/images/perfume/o.117616.jpg",
-        "link": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Asad-Elixir-117616.html"
     },
     {
         "name": "Safari Extreme",
@@ -544,5 +544,18 @@
         "quote": "Oriental Spicy. Warmth, spice, cardamom, frankincense, amber, and oud. Smoother and more balanced than Amouage Outlands.",
         "image": "https://fimgs.net/images/perfume/o.118549.jpg",
         "link": "https://www.fragrantica.com/perfume/Rayhaan/Terra-118549.html"
+    },
+    {
+        "name": "Rayhaan Italia",
+        "house": "Rayhaan",
+        "rating": "8/10",
+        "tier": "A",
+        "price": "150 - 250",
+        "owned": false,
+        "wishlist": true,
+        "notes": "Oriental Woody. Captures timeless elegance, with fresh, warm, and captivating notes. Bergamot, Tobacco Leaf, and Honey.",
+        "quote": "Oriental Woody. Captures timeless elegance, with fresh, warm, and captivating notes. Bergamot, Tobacco Leaf, and Honey.",
+        "image": "https://fimgs.net/images/perfume/o.120606.jpg",
+        "link": "https://www.fragrantica.com/perfume/Rayhaan/Italia-120606.html"
     }
 ]
