@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fran's Fragrance Tier List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 { color: #fff; margin-bottom: 20px; }
+        
+        .potw-container {
+            background: linear-gradient(135deg, #ffbf7f 0%, #ff7f7f 100%);
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 8px 20px rgba(255, 191, 127, 0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+        .potw-info h2 { margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+        .potw-info p { margin: 5px 0 0 0; font-size: 24px; font-weight: bold; }
+        .potw-img { width: 60px; height: 60px; object-fit: contain; background: white; padding: 5px; border-radius: 8px; }
+
+        .filter-container {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .filter-btn {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .filter-btn:hover { background-color: #444; }
+        .filter-btn.active {
+            background-color: #ffbf7f;
+            color: #000;
+            border-color: #ffbf7f;
+            font-weight: bold;
+        }
+        .count-badge {
+            background-color: rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        .filter-btn.active .count-badge {
+            background-color: rgba(0,0,0,0.15);
+        }
+
+        .tier-container {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .tier-row {
+            display: flex;
+            min-height: 150px;
+            border-radius: 8px;
+            overflow: visible;
+            background-color: #262626;
+            transition: all 0.3s ease;
+        }
+        .tier-row.hidden { display: none; }
+        
+        .tier-label {
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 32px;
+            color: #000;
+        }
+        .tier-content {
+            flex-grow: 1;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+            overflow: visible;
+        }
+        .perfume-card {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            z-index: 1;
+        }
+        .perfume-card.hidden { display: none; }
+        
+        .perfume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+            z-index: 1000;
+        }
+        .perfume-card:hover .perfume-tooltip {
+            display: block;
+        }
+        .perfume-tooltip {
+            display: none;
+            position: absolute;
+            bottom: 105%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #000;
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            width: 220px;
+            z-index: 10000;
+            border: 1px solid #ffbf7f;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            pointer-events: none;
+            text-align: left;
+            line-height: 1.4;
+        }
+        .perfume-tooltip strong { color: #ffbf7f; display: block; margin-bottom: 5px; font-size: 12px; }
+        .fragrantica-quote { font-style: italic; color: #ccc; display: block; margin-top: 5px; border-top: 1px solid #444; padding-top: 5px; }
+
+        .perfume-img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 5px;
+        }
+        .perfume-name { 
+            font-weight: bold; 
+            display: block; 
+            text-align: center; 
+            font-size: 13px; 
+            text-decoration: none; 
+            color: #fff;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+        .perfume-name:hover { color: #ffbf7f; text-decoration: underline; }
+        .perfume-house { font-size: 11px; color: #aaa; text-align: center; margin-bottom: 4px; }
+        .perfume-price { font-size: 12px; color: #ffbf7f; font-weight: bold; margin-bottom: 4px; }
+        
+        .owned-badge {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .owned-yes { background-color: #4CAF50; color: white; }
+        .owned-no { background-color: #f44336; color: white; }
+        
+        .wishlist-badge {
+            background-color: #87CEEB;
+            color: #333;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        .wishlist-heart {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: #ff4d4d;
+            font-size: 18px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .tier-s { background-color: #ff7f7f; }
+        .tier-a { background-color: #ffbf7f; }
+        .tier-b { background-color: #ffff7f; }
+        .tier-c { background-color: #7f7fff; }
+    </style>
+</head>
+<body>
+    <h1>Fran's Fragrance Tier List</h1>
+    
+    <div class="potw-container" id="potw-container">
+        </div>
+
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterList('all')">
+            All <span class="count-badge" id="count-all">0</span>
+        </button>
+        <button class="filter-btn" onclick="filterList('owned')">
+            Owned <span class="count-badge" id="count-owned">0</span>
+        </button>
+        <button class="filter-btn" onclick="filterList('not-owned')">
+            Not Owned <span class="count-badge" id="count-not-owned">0</span>
+        </button>
+        <button class="filter-btn" onclick="filterList('wishlist')">
+            Wishlist <span class="count-badge" id="count-wishlist">0</span>
+        </button>
+    </div>
+    
+    <div class="tier-container" id="tierContainer">
+        </div>
+
+    <script>
+        let allPerfumes = [];
+
+        async function init() {
+            try {
+                const response = await fetch('perfumes.json');
+                allPerfumes = await response.json();
+                
+                renderPOTW();
+                renderTiers();
+                updateCounters();
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById('tierContainer').innerHTML = "<p>Error loading data.</p>";
+            }
+        }
+
+        function renderPOTW() {
+            const featured = allPerfumes.find(p => p.tier === 'S') || allPerfumes[0];
+            if(featured) {
+                document.getElementById('potw-container').innerHTML = `
+                    <img src="${featured.image}" class="potw-img">
+                    <div class="potw-info">
+                        <h2>Perfume of the Week</h2>
+                        <a href="${featured.link}" target="_blank" style="text-decoration:none; color:inherit">
+                            <p>${featured.name}</p>
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        function renderTiers() {
+            const tiers = ['S', 'A', 'B', 'C'];
+            const container = document.getElementById('tierContainer');
+            container.innerHTML = '';
+
+            tiers.forEach(tier => {
+                const items = allPerfumes.filter(p => p.tier === tier);
+                if(items.length === 0) return;
+
+                const row = document.createElement('div');
+                row.className = 'tier-row';
+                
+                const cards = items.map(p => `
+                    <div class="perfume-card" data-owned="${p.owned ? 'yes' : 'no'}" data-wishlist="${p.wishlist ? 'yes' : 'no'}">
+                        ${p.wishlist ? '<div class="wishlist-heart">❤️</div>' : ''}
+                        <div class="perfume-tooltip">
+                            <strong>Fran:</strong> ${p.notes}
+                        </div>
+                        <img src="${p.image}" class="perfume-img">
+                        <a href="${p.link}" class="perfume-name" target="_blank">${p.name}</a>
+                        <span class="perfume-house">${p.house}</span>
+                        <span class="perfume-price">${p.price} QAR</span>
+                        <span class="owned-badge ${p.owned ? 'owned-yes' : 'owned-no'}">${p.owned ? 'Owned' : 'Not Owned'}</span>
+                        ${p.wishlist ? '<span class="wishlist-badge">Wishlist</span>' : ''}
+                    </div>
+                `).join('');
+
+                row.innerHTML = `<div class="tier-label tier-${tier.toLowerCase()}">${tier}</div><div class="tier-content">${cards}</div>`;
+                container.appendChild(row);
+            });
+        }
+
+        function filterList(type) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('active');
+                if(b.innerText.toLowerCase().includes(type.replace('-',' '))) b.classList.add('active');
+            });
+
+            document.querySelectorAll('.perfume-card').forEach(c => {
+                c.classList.remove('hidden');
+                const owned = c.getAttribute('data-owned') === 'yes';
+                const wishlist = c.getAttribute('data-wishlist') === 'yes';
+
+                if(type === 'owned' && !owned) c.classList.add('hidden');
+                if(type === 'not-owned' && owned) c.classList.add('hidden');
+                if(type === 'wishlist' && !wishlist) c.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.tier-row').forEach(row => {
+                const visible = row.querySelectorAll('.perfume-card:not(.hidden)').length;
+                row.style.display = visible === 0 ? 'none' : 'flex';
+            });
+        }
+
+        function updateCounters() {
+            document.getElementById('count-all').innerText = allPerfumes.length;
+            document.getElementById('count-owned').innerText = allPerfumes.filter(p => p.owned).length;
+            document.getElementById('count-not-owned').innerText = allPerfumes.filter(p => !p.owned).length;
+            document.getElementById('count-wishlist').innerText = allPerfumes.filter(p => p.wishlist).length;
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
