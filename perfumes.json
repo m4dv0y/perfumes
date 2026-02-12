@@ -1,18 +1,5 @@
 [
     {
-        "name": "Asad Elixir",
-        "house": "Lattafa",
-        "rating": "9/10",
-        "tier": "S",
-        "price": "120 - 180",
-        "owned": true,
-        "wishlist": false,
-        "notes": "Strong, oriental and masculine.",
-        "quote": "Strong, oriental and masculine.",
-        "image": "https://fimgs.net/images/perfume/o.117616.jpg",
-        "link": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Asad-Elixir-117616.html"
-    },
-    {
         "name": "Knight Silver",
         "house": "Arabian Oud",
         "rating": "9/10",
@@ -102,6 +89,19 @@
         "quote": "Very good blue fragrance. S Tier.",
         "image": "https://fimgs.net/images/perfume/o.40031.jpg",
         "link": "https://www.fragrantica.com/perfume/Versace/Versace-Pour-Homme-Dylan-Blue-40031.html"
+    },
+    {
+        "name": "Asad Elixir",
+        "house": "Lattafa",
+        "rating": "8/10",
+        "tier": "A",
+        "price": "120 - 180",
+        "owned": true,
+        "wishlist": false,
+        "notes": "Strong, oriental and masculine.",
+        "quote": "Strong, oriental and masculine.",
+        "image": "https://fimgs.net/images/perfume/o.117616.jpg",
+        "link": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Asad-Elixir-117616.html"
     },
     {
         "name": "Safari Extreme",
