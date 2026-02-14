@@ -65,13 +65,13 @@
         "link": "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html"
     },
     {
-        "name": "YSL Myslf Absolu",
+        "name": "YSL Myslf LAbsolu",
         "house": "YSL",
         "rating": "9/10",
         "tier": "S",
         "price": "500 - 700",
         "owned": true,
-        "wishlist": true,
+        "wishlist": false,
         "notes": "Very good omg! S tier. Wishlist.",
         "quote": "Very good omg! S tier. Wishlist.",
         "image": "https://fimgs.net/images/perfume/o.107428.jpg",
