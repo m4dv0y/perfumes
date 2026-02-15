@@ -65,15 +65,15 @@
         "link": "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html"
     },
     {
-        "name": "YSL Myslf LAbsolu",
+        "name": "YSL Myslf Absolu",
         "house": "YSL",
         "rating": "9/10",
         "tier": "S",
         "price": "500 - 700",
         "owned": true,
         "wishlist": false,
-        "notes": "Very good omg! S tier. Wishlist.",
-        "quote": "Very good omg! S tier. Wishlist.",
+        "notes": "Very good omg! S tier.",
+        "quote": "Very good omg! S tier.",
         "image": "https://fimgs.net/images/perfume/o.107428.jpg",
         "link": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/MYSLF-L-Absolu-107428.html"
     },
@@ -570,5 +570,31 @@
         "quote": "Citrus Aromatic. Opens with Bergamot, Mandarin, Ginger, and Mint; middle notes are Orange Flower, Pear; base notes are Cedar Wood, Amber, Musk.",
         "image": "https://fimgs.net/images/perfume/o.101314.jpg",
         "link": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Art-Of-Universe-101314.html"
+    },
+    {
+        "name": "Aether",
+        "house": "French Avenue",
+        "rating": "Unrated",
+        "tier": "B",
+        "price": "130 - 200",
+        "owned": false,
+        "wishlist": true,
+        "notes": "Top: Green Apple, Bergamot, Mandarin Orange. Mid: Cedar, Petitgrain, Cashmeran, Violet. Base: Musk, Amber Wood.",
+        "quote": "Top: Green Apple, Bergamot, Mandarin Orange. Mid: Cedar, Petitgrain, Cashmeran, Violet. Base: Musk, Amber Wood.",
+        "image": "https://fimgs.net/images/perfume/o.94702.jpg",
+        "link": "https://www.fragrantica.com/perfume/French-Avenue/Aether-94702.html"
+    },
+    {
+        "name": "Tribute Blue",
+        "house": "Afnan",
+        "rating": "Unrated",
+        "tier": "B",
+        "price": "150 - 250",
+        "owned": false,
+        "wishlist": true,
+        "notes": "Good for winter.",
+        "quote": "Good for winter.",
+        "image": "https://fimgs.net/images/perfume/o.94713.jpg",
+        "link": "https://www.fragrantica.com/perfume/Afnan/Liquid-Brun-94713.html"
     }
 ]
